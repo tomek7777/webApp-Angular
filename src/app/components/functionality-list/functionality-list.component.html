@@ -1,0 +1,33 @@
+<div class="functionalities-container">
+  <h1>Lista Funkcjonalności</h1>
+  <div *ngFor="let item of functionality" class="functionality-item">
+    <ul>
+      <li>
+        <h1 class="functionality-name">Nazwa: {{ item.name }}</h1>
+      </li>
+      <li class="functionality-description">Opis: {{ item.description }}</li>
+      <li class="functionality-priority">Priorytet: {{ item.priority }}</li>
+      <li class="functionality-status">Status: {{ item.status }}</li>
+    </ul>
+
+    <div class="functionality-buttons">
+      <div>
+        <button class="edit-button" (click)="editFunctionality(item.ID)">
+          Edytuj
+        </button>
+        <button
+          class="details-button"
+          (click)="showFunctionalityDetails(item.ID)"
+        >
+          INFO
+        </button>
+        <button class="delete-button" (click)="deleteFunctionality(item.ID)">
+          Usuń
+        </button>
+      </div>
+    </div>
+  </div>
+  <button class="create-button" (click)="addFunctionality()">
+    Utwórz Funkcjonalność
+  </button>
+</div>

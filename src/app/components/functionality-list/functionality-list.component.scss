@@ -1,0 +1,59 @@
+.functionalities-container {
+  padding: 20px;
+  background-color: #f0f0f0;
+
+  .functionality-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    .functionality-name {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .functionality-description {
+      margin-bottom: 5px;
+    }
+
+    .functionality-priority {
+      margin-bottom: 5px;
+    }
+
+    .functionality-status {
+      margin-bottom: 5px;
+    }
+
+    .functionality-buttons {
+      margin-top: 10px;
+
+      .edit-button,
+      .details-button,
+      .delete-button {
+        margin-right: 5px;
+        font-size: 16px;
+        padding: 5px 10px;
+        background-color: black;
+        color: white;
+        border: none;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  .create-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: #333;
+    }
+  }
+}
