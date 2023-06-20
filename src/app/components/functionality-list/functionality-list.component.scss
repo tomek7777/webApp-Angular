@@ -2,43 +2,59 @@
   padding: 20px;
   background-color: #f0f0f0;
 
+  .page-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
   .functionality-item {
     margin-bottom: 20px;
     padding: 10px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    .functionality-name {
-      font-size: 18px;
-      font-weight: bold;
-    }
+    .functionality-info {
+      flex: 1;
 
-    .functionality-description {
-      margin-bottom: 5px;
-    }
+      .functionality-name {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
 
-    .functionality-priority {
-      margin-bottom: 5px;
-    }
+      .functionality-description {
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
 
-    .functionality-status {
-      margin-bottom: 5px;
+      .functionality-priority,
+      .functionality-status {
+        font-size: 12px;
+        margin-bottom: 2px;
+      }
     }
 
     .functionality-buttons {
-      margin-top: 10px;
+      display: flex;
+      align-items: center;
 
-      .edit-button,
-      .details-button,
-      .delete-button {
-        margin-right: 5px;
-        font-size: 16px;
+      button {
+        margin-left: 10px;
+        font-size: 14px;
         padding: 5px 10px;
-        background-color: black;
+        background-color: #333;
         color: white;
         border: none;
         border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #555;
+        }
       }
     }
   }
@@ -47,13 +63,14 @@
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 16px;
-    background-color: black;
+    background-color: #333;
     color: white;
     border: none;
     border-radius: 4px;
+    cursor: pointer;
 
     &:hover {
-      background-color: #333;
+      background-color: #555;
     }
   }
 }

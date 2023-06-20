@@ -2,21 +2,24 @@
   <h1 class="task-list__title">Lista Zadań</h1>
   <ng-container *ngFor="let item of tasks">
     <div *ngIf="item.functionalityID === functionalityID" class="task">
-      <ul>
-        <li>
-          <h1 class="task__name">Nazwa: {{ item.name }}</h1>
-        </li>
-        <li>Opis: {{ item.description }}</li>
-        <li>Priorytet: {{ item.priority }}</li>
-        <li>Status: {{ item.state }}</li>
-      </ul>
-
-      <div class="task__actions">
-        <div>
+      <div class="task-header">
+        <h1 class="task-name">{{ item.name }}</h1>
+        <div class="task-actions">
           <button (click)="showTaskDetails(item.ID)">INFO</button>
           <button (click)="deleteTask(item.ID)">USUŃ</button>
         </div>
       </div>
+      <ul class="task-details">
+        <li>
+          <span class="task-label">Opis:</span> {{ item.description }}
+        </li>
+        <li>
+          <span class="task-label">Priorytet:</span> {{ item.priority }}
+        </li>
+        <li>
+          <span class="task-label">Status:</span> {{ item.state }}
+        </li>
+      </ul>
     </div>
   </ng-container>
   <button (click)="addTask()" class="create-task-btn">Utwórz Zadanie</button>

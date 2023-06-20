@@ -1,81 +1,78 @@
-<p>functionality-form works!</p>
+<p class="form-heading">Utwórz nową funkcjonalność</p>
 <form [formGroup]="functionalityForm" class="form-container">
-  <div class="container">
-    <h1 class="form-title">Utwórz Nową Funkcjonalność</h1>
-    <div class="form-content">
-      <div class="form-group">
-        <label for="title" class="form-label">Tytuł</label>
-        <input
-          type="text"
-          id="title"
-          name="title"
-          formControlName="name"
-          required
-          class="form-input"
-        />
-      </div>
-      <div class="form-group">
-        <label for="description" class="form-label">Opis</label>
-        <input
-          type="text"
-          id="description"
-          name="description"
-          formControlName="description"
-          required
-          class="form-input"
-        />
-      </div>
-      <div class="form-group">
-        <label for="priority" class="form-label">Priorytet</label>
-        <input
-          type="text"
-          id="priority"
-          name="priority"
-          formControlName="priority"
-          required
-          class="form-input"
-        />
-      </div>
-      <div class="form-group">
-        <label for="status" class="form-label">Status</label>
-        <select
-          id="status"
-          name="status"
-          formControlName="status"
-          required
-          class="form-select"
-        >
-          <option *ngFor="let status of workStatusValues" [value]="status">
-            {{ status }}
-          </option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="startDate" class="form-label">Data Rozpoczęcia</label>
-        <input
-          type="date"
-          id="startDate"
-          name="startDate"
-          formControlName="startDate"
-          min="Date.now()"
-          required
-          class="form-input"
-        />
-      </div>
-      <div class="form-group">
-        <label for="endDate" class="form-label">Data Zakończenia</label>
-        <input
-          type="date"
-          id="endDate"
-          name="endDate"
-          formControlName="endDate"
-          required
-          class="form-input"
-        />
-      </div>
-      <button class="form-button" (click)="createFunctionality()">
-        Stwórz
-      </button>
+  <div class="form-content">
+    <div class="form-group">
+      <label for="title" class="form-label">Tytuł</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        formControlName="name"
+        required
+        class="form-input"
+      />
     </div>
+    <div class="form-group">
+      <label for="description" class="form-label">Opis</label>
+      <input
+        type="text"
+        id="description"
+        name="description"
+        formControlName="description"
+        required
+        class="form-input"
+      />
+    </div>
+    <div class="form-group">
+      <label for="priority" class="form-label">Priorytet</label>
+      <input
+        type="text"
+        id="priority"
+        name="priority"
+        formControlName="priority"
+        required
+        class="form-input"
+      />
+    </div>
+    <div class="form-group">
+      <label for="status" class="form-label">Status</label>
+      <select
+        id="status"
+        name="status"
+        formControlName="status"
+        required
+        class="form-select"
+      >
+        <option *ngFor="let status of workStatusValues" [value]="status">
+          {{ status }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="startDate" class="form-label">Data Rozpoczęcia</label>
+      <input
+        type="date"
+        id="startDate"
+        name="startDate"
+        formControlName="startDate"
+        min="Date.now()"
+        required
+        class="form-input"
+      />
+    </div>
+    <div class="form-group">
+      <label for="endDate" class="form-label">Data Zakończenia</label>
+      <input
+        type="date"
+        id="endDate"
+        name="endDate"
+        formControlName="endDate"
+        required
+        class="form-input"
+      />
+    </div>
+    <button class="form-button" (click)="createFunctionality()">
+      Stwórz
+    </button>
   </div>
 </form>

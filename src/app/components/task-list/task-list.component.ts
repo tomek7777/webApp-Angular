@@ -11,7 +11,7 @@ import { WorkStatus } from 'src/app/enums/workStatus.enum';
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.scss']
 })
-export class TaskListComponent implements OnInit{
+export class TaskListComponent implements OnInit {
   functionality!: FunctionalityInterface;
   functionalities: FunctionalityInterface[] = [];
   tasks: TaskInterface[] = [];
@@ -23,14 +23,19 @@ export class TaskListComponent implements OnInit{
     private functionalityService: FunctionalityService,
     private router: Router,
     private taskService: TaskService
-  ) {
+  ) {}
+
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.functionalityID = params['id'];
+      this.getSingleFunctionality(this.functionalityID);
+    });
+
     this.taskService.getTasks().subscribe((taskList: TaskInterface[]) => {
       this.tasks = taskList;
     });
   }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+
   getSingleFunctionality(ID: string) {
     this.functionalityService
       .getSingleFunctionality(ID)
@@ -51,7 +56,7 @@ export class TaskListComponent implements OnInit{
   }
 
   showTaskDetails(ID: string) {
-    this.router.navigate(['/task/edit',ID])
+    this.router.navigate(['/task/edit', ID]);
   }
 
   addTask() {
@@ -81,4 +86,3 @@ export class TaskListComponent implements OnInit{
     }
   }
 }
-

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { UserProjectsComponent } from './components/user-projects/user-projects.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserProcjectsComponent } from './components/user-procjects/user-procjects.component';
 import { TaskListComponent } from './components/task-list/task-list.component';
 import { TaskFormComponent } from './components/task-form/task-form.component';
 import { FunctionalityListComponent } from './components/functionality-list/functionality-list.component';
@@ -15,13 +15,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    UserProcjectsComponent,
+    UserProjectsComponent,
     FunctionalityFormComponent,
     FunctionalityListComponent,
     TaskListComponent,
     TaskFormComponent,
     FunctionalityEditComponent,
     EditTaskComponent,
+
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],

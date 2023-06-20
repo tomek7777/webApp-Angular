@@ -11,67 +11,51 @@ import { TaskInterface } from '../interfaces/task.interface';
   styleUrls: ['./edit-task.component.scss']
 })
 export class EditTaskComponent implements OnInit {
-  taskID! : string
-  taskFormGroup! : FormGroup
+  taskID!: string;
+  taskFormGroup!: FormGroup;
   workStatusValues = Object.values(WorkStatus);
-  taskToEdit!: TaskInterface
+  taskToEdit!: TaskInterface;
 
   constructor(
-    private taskService : TaskService,
+    private taskService: TaskService,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private router: Router
-  )
-  {
-
-  }
+  ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((params)=>{
-      const id = params.get('id')
-      if(id !== null)
-      {
-        this.taskID = id
-      }
-      else
-      {
-        this.taskID =''
-      }
-    })
+    this.route.paramMap.subscribe((params) => {
+      const id = params.get('id');
+      this.taskID = id ?? '';
+    });
 
-    this.taskService.getSingleTask(this.taskID).subscribe((task:TaskInterface)=>{
-      this.taskToEdit = task
-    })
+    this.taskService.getSingleTask(this.taskID).subscribe((task: TaskInterface) => {
+      this.taskToEdit = task;
 
-    this.taskFormGroup = this.formBuilder.group({
-      name:[this.taskToEdit.name,Validators.required],
-      description:[this.taskToEdit.description,Validators.required],
-      priority:[this.taskToEdit.priority,Validators.required],
-      state: [this.taskToEdit.state, Validators.required],
-      startDate: [this.taskToEdit.startDate,Validators.required],
-      endDate:[this.taskToEdit.endDate,Validators.required]
-    })
-
-
+      this.taskFormGroup = this.formBuilder.group({
+        name: [this.taskToEdit.name, Validators.required],
+        description: [this.taskToEdit.description, Validators.required],
+        priority: [this.taskToEdit.priority, Validators.required],
+        state: [this.taskToEdit.state, Validators.required],
+        startDate: [this.taskToEdit.startDate, Validators.required],
+        endDate: [this.taskToEdit.endDate, Validators.required]
+      });
+    });
   }
 
-  update(){
-    this.taskToEdit.name = this.taskFormGroup.value.name
-    this.taskToEdit.description = this.taskFormGroup.value.description
-    this.taskToEdit.priority = this.taskFormGroup.value.priority
-    this.taskToEdit.state = this.taskFormGroup.value.state
-    this.taskToEdit.startDate = this.taskFormGroup.value.startDate
-    this.taskToEdit.endDate = this.taskFormGroup.value.endDate
+  saveUpdatedTask(): void {
+    this.updateTask();
+    this.taskService.updateTask(this.taskToEdit).subscribe(() => {
+      this.router.navigate(['/functionalities', this.taskToEdit.functionalityID]);
+    });
   }
 
-  saveUpdatedTask()
-  {
-    console.log(this.taskToEdit.state)
-    this.update()
-    this.taskService.updateTask(this.taskToEdit).subscribe(()=>{
-       this.router.navigate(["/functionalities", this.taskToEdit.functionalityID])
-
-    })
+  private updateTask(): void {
+    this.taskToEdit.name = this.taskFormGroup.value.name;
+    this.taskToEdit.description = this.taskFormGroup.value.description;
+    this.taskToEdit.priority = this.taskFormGroup.value.priority;
+    this.taskToEdit.state = this.taskFormGroup.value.state;
+    this.taskToEdit.startDate = this.taskFormGroup.value.startDate;
+    this.taskToEdit.endDate = this.taskFormGroup.value.endDate;
   }
 }
-

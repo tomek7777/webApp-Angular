@@ -1,6 +1,74 @@
+<!-- <form class="form-container" [formGroup]="functionalityForm">
+  <div>
+    <h1>Edit functionality </h1>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        formControlName="name"
+        type="text"
+        id="title"
+        name="title"
+        required
+        [value]="functionalityOptions.name"
+      />
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input
+        formControlName="description"
+        type="text"
+        id="description"
+        name="description"
+        [value]="functionalityOptions.description"
+      />
+    </div>
+    <div class="form-group">
+      <label for="priority">Priority</label>
+      <input
+        formControlName="priority"
+        type="text"
+        id="priority"
+        name="priority"
+        [value]="functionalityOptions.priority"
+      />
+    </div>
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select id="status" name="status" required formControlName="status">
+        <option *ngFor="let value of workStatusValues" [value]="value">
+          {{ value }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="startDate">Start date</label>
+      <input
+        type="date"
+        id="startDate"
+        name="startDate"
+        min="Date.now()"
+        formControlName="startDate"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="endDate">End date</label>
+      <input
+        type="date"
+        id="endDate"
+        name="endDate"
+        required
+        formControlName="endDate"
+      />
+    </div>
+    <button (click)="editFunctionality()" type="submit">
+      Edit functionality
+    </button>
+  </div>
+</form> -->
 <form class="form-container" [formGroup]="functionalityForm">
   <div>
-    <h1>Edytuj </h1>
+    <h1>Edytuj funkcjonalność</h1>
     <div class="form-group">
       <label for="title">Tytuł</label>
       <input
@@ -41,7 +109,7 @@
       </select>
     </div>
     <div class="form-group">
-      <label for="startDate">Data Rozpoczęcia</label>
+      <label for="startDate">Data rozpoczęcia</label>
       <input
         type="date"
         id="startDate"
@@ -52,7 +120,7 @@
       />
     </div>
     <div class="form-group">
-      <label for="endDate">Data Zakończenia</label>
+      <label for="endDate">Data zakończenia</label>
       <input
         type="date"
         id="endDate"
@@ -62,7 +130,7 @@
       />
     </div>
     <button (click)="editFunctionality()" type="submit">
-      Edytuj
+      Edytuj funkcjonalność
     </button>
   </div>
 </form>

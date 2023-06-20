@@ -5,6 +5,7 @@ import { FunctionalityInterface } from 'src/app/interfaces/functionality.interfa
 import { TaskInterface } from 'src/app/interfaces/task.interface';
 import { WorkStatus } from 'src/app/enums/workStatus.enum';
 import { TaskService } from 'src/app/services/task.service';
+
 @Component({
   selector: 'app-functionality-list',
   templateUrl: './functionality-list.component.html',
@@ -12,26 +13,20 @@ import { TaskService } from 'src/app/services/task.service';
 })
 export class FunctionalityListComponent implements OnInit {
   functionality: FunctionalityInterface[] = [];
-  tasksF: TaskInterface[] = []
-  allTasks: TaskInterface[] = []
 
   constructor(
     private functionalityService: FunctionalityService,
-    private taskService : TaskService,
+    private taskService: TaskService,
     private router: Router
-  ) {
+  ) {}
+
+  ngOnInit(): void {
     this.functionalityService
       .getFunctionalities()
       .subscribe((functionality: FunctionalityInterface[]) => {
         this.functionality = functionality;
         this.updateFunctionalityStatus();
       });
-
-
-  }
-
-  ngOnInit(): void {
-    console.log(this.functionality);
   }
 
   showFunctionalityDetails(ID: string) {
@@ -75,7 +70,7 @@ export class FunctionalityListComponent implements OnInit {
       } else if (allTasksDone) {
         func.status = WorkStatus.Done;
       } else {
-        func.status = WorkStatus.Todo; // Dodaj tę linijkę, jeśli chcesz, aby status był ustawiany na "Pending", gdy nie ma żadnych zadań lub gdy nie wszystkie są zakończone
+        func.status = WorkStatus.Todo;
       }
     });
   }
